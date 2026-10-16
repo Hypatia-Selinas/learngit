@@ -1,2 +1,2 @@
-Git is a veision control system.
+Git is a distributed veision control system.
 git is free software.
