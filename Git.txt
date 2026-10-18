@@ -32,4 +32,32 @@ git reset HEAD 文件名      把暂存区的修改退回到工作区
 git reset --hard HEAD^
 
 删除文件夹
+rm 文件名    或 直接手动删
+git rm 文件名     删掉文件同时把删除这个动作加到暂存区
+git commit --"remove 文件名"
+删错了一键恢复  git checkout --文件名
 
+远程仓库
+git remote add origin git@server-name:path/repo-name.git
+git push -u origin master
+git push oringin main     只要本地做了提交，就可推送至GitHub
+删除远程库（解绑）
+git remote rm name  
+先用 git remote -v   查看远程库信息，再根据名字删除
+从远程库克隆
+git clone git@github.com:用户名/仓库名.git
+Git支持多种协议，默认的git://使用ssh，但也可以使用https等其他协议。
+使用https除了速度慢以外，还有个最大的麻烦是每次推送都必须输入口令，但是在某些只开放http端口的公司内部就无法使用ssh协议而只能用https。
+
+分支管理
+1.创建加切换分支
+git checkout -b 分支名   =git branch 分支名      git checkout 分支名
+2.查看当前分支
+git branch 
+3.合并分支
+git merge 文件名   
+4.删除分支
+git branch -d 文件名
+5.切换分支
+git swich -c 文件名
+解决冲突
