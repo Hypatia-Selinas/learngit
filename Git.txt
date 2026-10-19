@@ -149,3 +149,20 @@ git push origin --tags
 一定要从自己的账号下clone仓库，这样你才能推送修改
 pull request
 
+显示颜色
+git config --global color.ui true
+忽略特殊文件
+忽略某些文件时，需要编写.gitignore；
+.gitignore文件本身要放到版本库里，并且可以对.gitignore做版本管理
+把指定文件排除在.gitignore规则外的写法就是!+文件名，所以，只需把例外文件添加进去即可
+
+配置别名
+$ git config --global alias.st status
+好好好  记单词
+配置文件
+查看当前仓库配置
+cat .git/config
+查看全局配置
+cat ~/.gitconfig
+别名就在[alias]后面，要删除别名，直接把对应的行删掉即可
+当前用户的Git配置文件放在用户主目录下的一个隐藏文件.gitconfig中
