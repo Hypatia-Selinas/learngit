@@ -3,6 +3,7 @@ mkdir 目录名
 cd 目录名   (切换，进入别的目录)
 pwd(输出当前所在目录位置)
 git it
+find ~ -type d -name "Learngit"
 
 把文件添加到版本库
 git add文件名      添加文件到暂存区
@@ -58,6 +59,7 @@ git branch
 git merge 文件名   
 4.删除分支
 git branch -d 文件名
-5.切换分支
+5.创建并切换分支
 git swich -c 文件名
 解决冲突
+合并后手动解决
