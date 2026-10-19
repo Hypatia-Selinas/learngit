@@ -53,6 +53,8 @@ Git支持多种协议，默认的git://使用ssh，但也可以使用https等其
 分支管理
 1.创建加切换分支
 git checkout -b 分支名   =git branch 分支名      git checkout 分支名
+创建并切换分支
+git swich -c 文件名        git  switch  文件名
 2.查看当前分支
 git branch 
 3.合并分支
@@ -61,13 +63,27 @@ git merge 文件名
 git merge --no-ff -m"  " 文件名        git log --graph --pretty=oneline --abbrev-commit
 4.删除分支
 git branch -d 文件名
-5.创建并切换分支
-git swich -c 文件名        git  switch  文件名
+
 解决冲突
 合并后手动解决
+
 BUG分支
 stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作：
+git stash
 首先确定要在哪个分支上修复bug，假定需要在main分支上修复，就从main创建临时分支
-修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；
-当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场；
-在master分支上修复的bug，想要合并到当前dev分支，可以用git cherry-pick <commit>命令，把bug提交的修改“复制”到当前分支
+git checkout main
+git checkout -b issue-101
+修改bug后   git switch main
+合并分支
+git merge --no-ff -m "merged bug fix 101" issue-101
+返回原分支
+git switch dev
+查看工作现场
+git stash list
+回到工作现场
+git stash pop      恢复的同时把stash内容也删了
+可以多次stash，恢复的时候，先用git stash list查看，然后恢复指定的stash
+git stash apply stash@{0}
+恢复后，stash内容并不删除，你需要用git stash drop来删除
+
+在main分支上修复的bug，想要合并到当前dev分支，可以用git cherry-pick <commit>命令，把bug提交的修改“复制”到当前分支
